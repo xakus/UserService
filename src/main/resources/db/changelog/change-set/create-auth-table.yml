@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-auth-table
+      author: Murad
+      changes:
+        - createTable:
+            tableName: authorisations
+            columns:
+              - column:
+                  name: name
+                  type: varchar(20)
+                  constraints:
+                    primaryKey: true
+                    nullable: false

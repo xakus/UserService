@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    container_name: postgres
+    environment:
+      POSTGRES_DB: user_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: DBPASSWORD
+    ports:
+      - "5443:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  redis:
+    image: redis/redis-stack:latest
+    container_name: redis-stack
+    restart: always
+    environment:
+      REDIS_PASSWORD: "REDISPASSWORD"
+    volumes:
+      - redis_volume_data:/data
+    ports:
+      - 6379:6379
+      - 9911:8001
+volumes:
+  pgdata:
+  redis_volume_data:
+

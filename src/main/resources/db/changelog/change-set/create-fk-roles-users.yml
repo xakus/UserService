@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-fk-roles-users
+      author: Murad
+      changes:
+        - createTable:
+            tableName: users_authorisations
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_user_id
+                    references: users(id)
+              - column:
+                  name: role_name
+                  type: varchar(100)
+                  constraints:
+                    foreignKeyName: fk_roles_role
+                    references: roles(role)

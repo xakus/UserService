@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-roles
+      author: Murad
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: -1
+              - column:
+                  name: role
+                  value: ADMIN
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: -2
+              - column:
+                  name: role
+                  value: USER
+  - changeSet:
+      id: insert-robot-roles
+      author: Murad
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: -3
+              - column:
+                  name: role
+                  value: ROBOT

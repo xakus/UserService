@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_user_login_log
+      author: developer
+      changes:
+        - createTable:
+            tableName: user_login_log
+            remarks: "Таблица для хранения информации о входах пользователей"
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  remarks: "Уникальный идентификатор записи"
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  remarks: "ID пользователя"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(255)
+                  remarks: "Имя пользователя"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ip_address
+                  type: varchar(50)
+                  remarks: "IP-адрес пользователя при входе"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: login_time
+                  type: timestamp
+                  remarks: "Дата и время входа пользователя"
+                  constraints:
+                    nullable: false
+

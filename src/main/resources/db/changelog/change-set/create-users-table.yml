@@ -1,0 +1,104 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-table
+      author: Murad
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(100)
+              - column:
+                  name: last_name
+                  type: varchar(100)
+              - column:
+                  name: password
+                  type: varchar(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: promo_code
+                  type: varchar(300)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: my_promo_code
+                  type: varchar(300)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: active
+                  type: boolean
+                  defaultValue: true
+              - column:
+                  name: create_time
+                  type: datetime
+  - changeSet:
+      id: create-roles-table
+      author: Murad
+      changes:
+        - createTable:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+  - changeSet:
+      id: create-fk-roles-users
+      author: Murad
+      changes:
+        - createTable:
+              tableName: users_roles
+              columns:
+                - column:
+                    name: user_id
+                    type: bigint
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: role_name
+                    type: varchar(100)
+                    constraints:
+                      nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: users_roles
+            baseColumnNames: user_id
+            constraintName: fk_user_id
+            referencedTableName: users
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: users_roles
+            baseColumnNames: role_name
+            constraintName: fk_roles_role
+            referencedTableName: roles
+            referencedColumnNames: role

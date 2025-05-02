@@ -1,0 +1,45 @@
+server:
+  port: 8088
+
+
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:postgresql://localhost:5443/user_db
+    username: postgres
+    password: DBPASSWORD
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.yml
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: "REDISPASSWORD"
+
+logging:
+  level:
+    root: info
+    org.springframework: info
+    com.example.package: info
+    com.murad: debug
+    # Установите DEBUG для конкретных классов или пакетов, если нужно подробное логирование
+    # com.example.package.SomeClass: DEBUG
+  pattern:
+    console: "%d{yy-MM-dd HH:mm:ss} [%-5level] %logger{40}-> %msg%n"
+
+
+
+jwt:
+  secret: MTIzIUAjcXdlUVdFXk1VUkFEXjEyMyFAI3F3ZVFXRTFxQFczZQ==
+  expiration: 30000
