@@ -46,7 +46,8 @@
 1. Убедитесь, что установлены Docker и Docker Compose. Скрипт `start.sh` автоматически установит их при необходимости.
 2. Запустите:
    ```bash
-   ./start.sh
+   sudo chmod +x start.sh
+   sudo ./start.sh
    ```
    Это поднимет все контейнеры и сервис UserService.
 
