@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-system-table
+      author: Murad
+      changes:
+        - createTable:
+            tableName: systems
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create-sub_type-table
+      author: Murad
+      changes:
+        - createTable:
+            tableName: sub_type
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: systems_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: sub_type
+            baseColumnNames: systems_id
+            constraintName: fk_system_id
+            referencedTableName: systems
+            referencedColumnNames: id

@@ -1,0 +1,129 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-systems1
+      author: Murad
+      changes:
+        - insert:
+            tableName: systems
+            columns:
+              - column:
+                  name: id
+                  value: -1
+              - column:
+                  name: name
+                  value: UNEC
+  - changeSet:
+      id: insert-systems2
+      author: Murad
+      changes:
+        - insert:
+            tableName: systems
+            columns:
+              - column:
+                  name: id
+                  value: -2
+              - column:
+                  name: name
+                  value: UNEC2
+
+
+
+  - changeSet:
+      id: insert-sub1
+      author: Murad
+      changes:
+        - insert:
+            tableName: sub_type
+            columns:
+              - column:
+                  name: id
+                  value: -1
+              - column:
+                  name: name
+                  value: Kabinet1
+              - column:
+                  name: systems_id
+                  value: -1
+  - changeSet:
+      id: insert-sub2
+      author: Murad
+      changes:
+        - insert:
+            tableName: sub_type
+            columns:
+              - column:
+                  name: id
+                  value: -2
+              - column:
+                  name: name
+                  value: Kabinet2
+              - column:
+                  name: systems_id
+                  value: -1
+  - changeSet:
+      id: insert-sub3
+      author: Murad
+      changes:
+        - insert:
+            tableName: sub_type
+            columns:
+              - column:
+                  name: id
+                  value: -3
+              - column:
+                  name: name
+                  value: Kabinet3
+              - column:
+                  name: systems_id
+                  value: -1
+
+
+
+  - changeSet:
+      id: insert-sub4
+      author: Murad
+      changes:
+        - insert:
+            tableName: sub_type
+            columns:
+              - column:
+                  name: id
+                  value: -4
+              - column:
+                  name: name
+                  value: Kabinet4
+              - column:
+                  name: systems_id
+                  value: -2
+  - changeSet:
+      id: insert-sub5
+      author: Murad
+      changes:
+        - insert:
+            tableName: sub_type
+            columns:
+              - column:
+                  name: id
+                  value: -5
+              - column:
+                  name: name
+                  value: Kabinet5
+              - column:
+                  name: systems_id
+                  value: -2
+  - changeSet:
+      id: insert-sub6
+      author: Murad
+      changes:
+        - insert:
+            tableName: sub_type
+            columns:
+              - column:
+                  name: id
+                  value: -6
+              - column:
+                  name: name
+                  value: Kabinet6
+              - column:
+                  name: systems_id
+                  value: -2

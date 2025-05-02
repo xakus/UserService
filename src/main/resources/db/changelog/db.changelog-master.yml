@@ -3,5 +3,9 @@ databaseChangeLog:
       file: db/changelog/change-set/create-users-table.yml
   - include:
       file: db/changelog/change-set/create-user_login_log-table.yml
+  - include:
+      file: db/changelog/change-set/create-system-table.yml
+  - include:
+      file: db/changelog/change-set/insert-systems-sub_system.yml
 
 
